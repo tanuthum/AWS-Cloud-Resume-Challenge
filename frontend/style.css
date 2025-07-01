@@ -150,9 +150,11 @@ footer {
 }
 
 .hero .view-counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin-top: 10px;
 }
 
+.hero .view-counter span {
+  font-weight: bold;
+  color: #ff9a8b; /* Or another color that fits your theme */
+}
