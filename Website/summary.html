@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cloud Resume Challenge - Summary</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">TK</div>
+    <ul class="nav-links">
+      <li><a href="summary.html">Summary</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Tanuthum Kingkaew</h1>
+    <p>AWS Certified Cloud Practitioner</p>
+    <div class="view-counter">
+      <p>Website View Count: <span id="ViewCount">Loading...</span></p>
+    </div>
+  </header>
+
+  <!-- Summary Section Only -->
+  <section id="summary" class="glass-card">
+    <h2>Summary and Education Background</h2>
+    
+    <p>
+        Recent Computer Engineering graduate from KMUTT with a strong foundation in research, cloud
+        computing, and interdisciplinary innovation. Passionate about applying engineering expertise to emerging
+        fields such as aerospace and advanced technologies. I'm Eager to contribute to forward-thinking teams and deliver impactful solutions in dynamic, tech-driven environments.
+
+    <div class="contact-links">
+      <p><br>
+        📧 Email: <a href="mailto:tanuthumkingkaew@gmail.com">tanuthumkingkaew@gmail.com</a><br>
+        </br> 💻 GitHub: <a href="https://github.com/tanuthum" target="_blank">github.com/tanuthum</a><br>
+        </br>🔗 LinkedIn: <a href="https://www.linkedin.com/in/tanuthum-kingkaew-888009282/" target="_blank">linkedin.com/in/tanuthumkingkaew</a>
+        </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tanuthum Kingkaew</p>
+  </footer>
+
+  <script>
+        const functionUrl = "https://pf2xjdcsly3d7kdj4rz6t3ozom0mknjx.lambda-url.us-east-1.on.aws/";
+      
+        async function fetchViewCount() {
+          try {
+            const response = await fetch(functionUrl);
+            const data = await response.json();
+      
+            // Display the view count
+            document.getElementById("ViewCount").innerText = data.views;
+          } catch (error) {
+            console.log(error)
+            console.error("Error fetching view count:", error);
+            document.getElementById("ViewCount").innerText = "error";
+          }
+        }
+      
+        // Run when the page loads
+        window.onload = fetchViewCount;
+  </script>
+
+</body>
+</html>
