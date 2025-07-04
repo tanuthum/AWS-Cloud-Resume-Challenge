@@ -52,25 +52,22 @@
   </footer>
 
   <script>
-        const functionUrl = "https://pf2xjdcsly3d7kdj4rz6t3ozom0mknjx.lambda-url.us-east-1.on.aws/";
-      
-        async function fetchViewCount() {
-          try {
-            const response = await fetch(functionUrl);
-            const data = await response.json();
-      
-            // Display the view count
-            document.getElementById("ViewCount").innerText = data.views;
-          } catch (error) {
-            console.log(error)
-            console.error("Error fetching view count:", error);
-            document.getElementById("ViewCount").innerText = "error";
-          }
-        }
-      
-        // Run when the page loads
-        window.onload = fetchViewCount;
+    const functionUrl = "https://02ozjdurm5.execute-api.ap-southeast-1.amazonaws.com/count";
+    async function fetchViewCount() {
+      try {
+        const resp = await fetch(functionUrl);
+        const data = await resp.json();
+        document.getElementById("ViewCount").innerText = data.views;
+      } catch (err) {
+        console.error("Fetch error:", err);
+        document.getElementById("ViewCount").innerText = "error";
+      }
+    }
+
+    window.onload = fetchViewCount;
   </script>
+
+
 
 </body>
 </html>
